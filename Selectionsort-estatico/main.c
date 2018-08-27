@@ -24,7 +24,7 @@ void SelectionSortEstavel(int v[]){
 			if (v[j] < v[menor]){
 				menor = j;
 			}
-		}
+		} 
 		temp = v[menor];
 		v[menor] = v[i];
 		v[i] = temp;
