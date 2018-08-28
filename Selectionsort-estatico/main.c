@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define TAM 5
                   
-int vetor[TAM] = {5,4,3,2,1};
+int vetor[TAM];// = {5,4,3,2,1};
 
 void SelectionSort(int v[]){
 	int temp,i,j;
@@ -31,6 +31,23 @@ void SelectionSortEstavel(int v[]){
 	}
 }
 
+void SelectionSortEstavelMelhorado(int v[]){
+	int temp,i,j,menor;
+	for (i = 0; i < TAM - 1; i++){
+		menor = i;
+		for (j = i + 1; j < TAM; j++){
+			if (v[j] < v[menor]){
+				menor = j;
+			}
+		} 
+		if (i != menor){
+			temp = v[menor];
+			v[menor] = v[i];
+			v[i] = temp;
+		}
+	}
+}
+
 
 void listar(int v[]){
 	int i;
@@ -43,6 +60,12 @@ void listar(int v[]){
 
 int main(int argc, char **argv)
 {
+	int i;
+	for(i = 0; i < TAM; i++){
+		printf("Informe o numero: ");
+		scanf("%d",&vetor[i]);
+	}
+	
 	listar(vetor);
 	SelectionSortEstavel(vetor);
 	listar(vetor);
