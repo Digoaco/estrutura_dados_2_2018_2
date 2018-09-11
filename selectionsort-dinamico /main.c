@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	enfileirar(4);
 	enfileirar(5);
 	listar();
-	selectionSortEstavel(fila);
+	selectionSortEstavel	(fila);
 	listar();
 	printf("trocas %d",trocas);
 	return 0;
