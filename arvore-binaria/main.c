@@ -40,43 +40,43 @@ void central (TArvore * no){
 	
 }
 
+void criarRaiz(int informacao){
+	raiz = malloc(sizeof(TArvore));
+	raiz->info = informacao;
+	raiz->dir = raiz->esq = NULL;
+}
+
+void preencher(TArvore * no){
+	int leitura, cont = 1;
+	TArvore * novo;
+	
+	if (no == NULL)
+		return;	
+	while (cont <= 2){
+		printf("Pai: %d, informe o valor do nó: ", no->info);
+		scanf("%d",&leitura);
+		if (leitura == 0){
+			cont++;
+			continue;
+		}
+		novo = malloc(sizeof(TArvore));
+		novo->info = leitura;
+		novo->esq = novo->dir = NULL;
+		if (cont == 1)
+			no->esq = novo;
+		else
+			no->dir = novo;	
+		cont++;
+	}
+	preencher(no->esq);
+	preencher(no->dir);
+}
+
 
 int main(int argc, char **argv)
 {
-	TArvore * node;
-	raiz = malloc(sizeof(TArvore));
-	raiz->esq = raiz->dir = NULL;
-	raiz->info = 10;
-	
-	node = malloc(sizeof(TArvore));
-	node->esq = node->dir = NULL;
-	node->info = 2;
-	raiz->esq = node;
-	
-	node = malloc(sizeof(TArvore));
-	node->esq = node->dir = NULL;
-	node->info = 1;
-	raiz->esq->esq = node;
-	
-	node = malloc(sizeof(TArvore));
-	node->esq = node->dir = NULL;
-	node->info = 3;
-	raiz->esq->dir = node;
-	
-	node = malloc(sizeof(TArvore));
-	node->esq = node->dir = NULL;
-	node->info = 6;
-	raiz->esq->dir->dir = node;
-	
-	node = malloc(sizeof(TArvore));
-	node->esq = node->dir = NULL;
-	node->info = 4;
-	raiz->esq->dir->dir->esq = node;
-	
-	node = malloc(sizeof(TArvore));
-	node->esq = node->dir = NULL;
-	node->info = 5;
-	raiz->esq->dir->dir->esq->dir = node;
+	criarRaiz(1);
+	preencher(raiz);
 
 
 	posFixado(raiz);
