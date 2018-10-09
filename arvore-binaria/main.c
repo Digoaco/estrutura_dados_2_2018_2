@@ -191,7 +191,7 @@ int main(int argc, char **argv)
 		preencherABB(raiz,leitura);
 	}
 	central(raiz);
-	/*
+	
 	int chave;
 	printf("\nInforme a chave da busca: ");
 	scanf("%d",&chave);
@@ -202,9 +202,9 @@ int main(int argc, char **argv)
 	else
 		printf("Chave encontrada na posicao: %p\n", pos);
 		
-	alterarArvore(raiz, 5, 6);*/
+	alterarArvore(raiz, 5, 6);
 	tipo = 0;
-	deletarArvore(raiz, 25);
+	deletarArvore(raiz, 7);
 	printf("apos deletar \n\n");
 	central(raiz);
 	return 0;
