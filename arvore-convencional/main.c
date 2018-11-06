@@ -44,17 +44,18 @@ void preencher(TArvore * no){
 	TArvore * irmao;
 	
 	if (no == NULL)
-		return;	
-	while (1){
+		return;
+			
+	while(1){
 		printf("Pai: %d, informe o valor do nó: ", no->info);
 		scanf("%d",&leitura);
-		if (leitura == 0){
-			cont++;
-			continue;
-		}
+		if (leitura == 0)
+			break;
+		
 		novo = malloc(sizeof(TArvore));
 		novo->info = leitura;
-		novo->esq = novo->dir = NULL;
+		novo->filho = novo->irmao = NULL;
+		
 		if (no->filho == NULL){
 			no->filho = novo;
 			irmao = novo; 
@@ -81,7 +82,8 @@ int main(int argc, char **argv)
 	int leitura;
 	scanf("%d",&leitura);
 	criarRaiz(leitura);
-	
+	preencher(raiz);
+	/*
 	node = novo();
 	node->info = 2;
 	raiz->filho = node;
@@ -109,8 +111,10 @@ int main(int argc, char **argv)
 	node = novo();
 	node->info = 7;
 	raiz->filho->filho->irmao->irmao = node;
-	
-	
+	*/
+	printf("\n\nProfundidade\n");
+	profundidade(raiz);
+	printf("\n\nLargura\n");
 	largura(raiz);
 	
 	
